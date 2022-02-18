@@ -1,0 +1,178 @@
+/* //Imported Component Styles */
+@import "tailwindcss/base";
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap");
+
+@layer base {
+	/* Basic Styling */
+
+	/* Right placement or under root? */
+	*,
+	*::before,
+	*::after {
+		@apply box-border;
+	}
+
+	/* Color Palette Do I use root or some other general location? *, html, body??? */
+
+	/*	:root {
+	
+
+		--color-base:  ;
+		--color-base-tinted: ;
+		--color-base-toned: ;
+		--color-base-shaded: ;
+		--color-compliment: ;
+		--color-compliment-tinted: ;
+		--color-compliment-toned: ;
+		--color-compliment-shaded: ;
+		--color-accent: ;
+		--color-accent-tinted: ;
+		--color-accent-toned: ;
+		--color-accent-shaded: ;
+		--color-muted: ;
+		--color-muted-tinted: ;
+		--color-muted-toned: ;
+		--color-muted-shaded: ;
+
+	
+
+		--text-base: ;
+		--text-base-light: ;
+		--text-compliment: ;
+		--text-accent: ;
+		--text-muted: ;
+
+		--border-size:
+		--border-radius:
+	}
+
+	.theme-name {
+		@apply;
+	}
+ */
+	/* ALTERNATE THEMES -------------------- */
+
+	/* GRAND EXAMPLE OF HOW TO IMPORT VALUES FROM ANY PLACE IN TAILWIND TO TOP LEVEL UTILITIES USING THEME TRANSPORTATION. */
+	/* 
+
+.theme-name {
+
+--color-base:theme('colors.base.DEFAULT');
+--color-base-tinted: #;
+--color-base-toned: #;
+--color-base-shaded: #;
+--color-compliment: #;
+--color-compliment-tinted: #;
+--color-compliment-toned: #;
+--color-compliment-shaded: #;
+--color-accent: #;
+--color-accent-tinted: #;
+--color-accent-toned: #;
+--color-accent-shaded: #;
+--color-muted: #;
+--color-muted-tinted: #;
+--color-muted-toned: #;
+--color-muted-shaded: #;
+
+- - - - - -Font Colors- - - - - -
+
+--text-base: #;
+--text-compliment: #;
+--text-accent: #;
+--text-muted: #;
+}
+ */
+
+	/* html is where i put font-size for tailwind (maybe font-family, font-color,  and line-height as well... we will see what works). Mosh puts his under body */
+	/* General text adjustment to make 1rem = 10px */
+	/* font-size: calc(1vmin); Responsive Text (seen on React app) or Media Queries */
+	html {
+		font-size: 62.5%;
+	}
+
+	/* according to mosh you put font-family, line-height and color here in the body */
+
+	body {
+		background: #2d233a;
+		@apply text-1.6 text-center text-slate-50 font-Raleway;
+	}
+
+	div {
+		@apply rounded-lg;
+	}
+
+	span {
+		@apply rounded-lg;
+	}
+	/* Typography - rems */
+	/* Remember top margin should be higher than bottom margin for headings. Be aware of margin collapsing. Trick with p elements is to set the margin to 0 and let headings decide space uniformly*/
+
+	/* margin-top 2rem - 4rem*/
+	/* margin-bottom: 1 - 2rem*/
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin-bottom: 1rem;
+		margin-top: 3rem;
+	}
+
+	h1 {
+		@apply text-3.75  480:text-4.25  960:text-5 1280:text-7;
+	}
+	h2 {
+		@apply text-3 480:text-3.75   960:text-4.5 1280:text-5.5;
+	}
+	h3 {
+		@apply text-2.25 480:text-3   960:text-3.5  1280:text-4.5;
+	}
+	h4 {
+		@apply text-2 480:text-2.5  960:text-3  1280:text-3.5;
+	}
+	p {
+		@apply text-1.6  960:text-1.8 1280:text-1.9;
+	}
+}
+
+@import "tailwindcss/components";
+
+/* @import "./components/ZenCSS/ZenSpheres.css";
+@import "./components/ZenCSS/ZenInfoContainer.css";
+ */
+@layer components {
+	.card-table {
+		max-width: 860px;
+		//margin: 40px auto;
+		@apply m-4;
+	}
+
+	.button {
+		@apply border-2 border-white px-2 py-1 rounded-xl text-slate-50 font-500 cursor-pointer hover:bg-pink-500 hover:text-white duration-200 ease-in-out transition-all;
+	}
+
+	.card-front {
+		transform: rotateY(90deg);
+		transition: all ease-in 0.2s;
+		@apply absolute;
+	}
+
+	.flipped .card-front {
+		transform: rotateY(0deg);
+		transition-delay: 0.2s;
+	}
+	.card-back {
+		transition: all ease-in 0.2s;
+		transition-delay: 0.2s;
+	}
+
+	.flipped .card-back {
+		transform: rotateY(90deg);
+		transition-delay: 0s;
+	}
+}
+
+@import "tailwindcss/utilities";
+@layer utilities {
+} ;
